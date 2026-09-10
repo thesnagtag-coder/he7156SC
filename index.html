@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<title>The Home & Emergency Check - SafeLife Situations by The Snag Tag</title>
+<meta name="description" content="Real checks for emergency preparedness, new home move-ins, farm & rural households, and home office/WFH setups. Free, 5 minutes, no signup.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%227%22%20fill%3D%22%2315130F%22/%3E%3Cpath%20d%3D%22M10%206h9.5c.8%200%201.6.3%202.1.9l6%206c1.2%201.2%201.2%203.1%200%204.2l-9.5%209.5c-1.2%201.2-3.1%201.2-4.2%200l-6-6c-.6-.6-.9-1.3-.9-2.1V9c0-1.7%201.3-3%203-3z%22%20fill%3D%22%23D9B65F%22/%3E%3Ccircle%20cx%3D%2214.5%22%20cy%3D%2211.5%22%20r%3D%222%22%20fill%3D%22%2315130F%22/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Display&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --accent:#9B6B80; --accent-dark:#7D4F63; --accent-rgb:155,107,128; --teal:#7FA396;
+  --bg:#F5EEF1; --surface:#FFFFFF; --surface-2:#EDE0E4; --tile:#FFFFFF;
+  --ink:#332E30; --ink-mid:#5E5457; --ink-soft:#7A6E71; --line:#E1D3D8;
+  --safe:#4F8266; --safe-bg:#E7F1E9;
+  --flag:#C1573F; --flag-bg:#FBE7DE;
+}
+body[data-mode="dark"]{
+  --accent:#D699AD; --accent-dark:#C17E95; --accent-rgb:214,153,173;
+  --bg:#E4DFD1; --surface:#F2EEE3; --surface-2:#D7D0BC; --tile:#F2EEE3;
+  --ink:#332E30; --ink-mid:#5E5457; --ink-soft:#7A6E71; --line:#C9C0A8;
+  --safe:#8FC7A3; --safe-bg:#1C2B22;
+  --flag:#E08868; --flag-bg:#2E1E16;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0; background:var(--bg); color:var(--ink); font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif; font-size:16px; line-height:1.6; -webkit-font-smoothing:antialiased; transition:background .25s,color .25s}
+h1,h2{font-family:'Bebas Neue',Inter,sans-serif; letter-spacing:.02em; margin:0}
+.serif{font-family:'DM Serif Display',Georgia,serif; letter-spacing:0}
+::selection{background:rgba(var(--accent-rgb),.3)}
+button{font-family:inherit}
+:focus-visible{outline:2px solid var(--accent-dark); outline-offset:2px}
+@media (prefers-reduced-motion: reduce){ *{animation-duration:.001ms !important; transition-duration:.001ms !important} }
+
+.rail{position:fixed; left:0; top:0; height:100vh; width:76px; z-index:40; display:flex; flex-direction:column; align-items:center; padding:22px 0; border-right:1px solid var(--line); background:var(--surface); overflow-y:auto; overflow-x:hidden; scrollbar-width:none}
+.rail::-webkit-scrollbar{display:none}
+.rail-mark{width:40px; height:40px; border-radius:9px; background:#1E1B15; position:relative; flex:none; display:grid; place-items:center; box-shadow:0 4px 14px rgba(0,0,0,.18)}
+.rail-mark svg{width:18px; height:18px}
+.rail-nav{list-style:none; margin:24px 0 0; padding:0; display:flex; flex-direction:column; gap:2px; align-items:center}
+.rail-nav a{writing-mode:vertical-rl; text-orientation:mixed; transform:rotate(180deg); font-family:'Inter',sans-serif; font-size:11px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-soft); text-decoration:none; padding:9px 8px; border-radius:8px; display:flex; align-items:center; gap:6px}
+.rail-nav a:hover, .rail-nav a.active{background:var(--surface-2); color:var(--ink)}
+.rail-nav a::before{content:"\2022"; color:var(--accent-dark); font-size:.9rem}
+.rail-bottom{margin-top:auto; display:flex; flex-direction:column; align-items:center; gap:14px}
+.theme-btn{width:34px; height:34px; border-radius:8px; border:1px solid var(--line); background:var(--surface); color:var(--ink-soft); cursor:pointer; display:grid; place-items:center; font-size:.85rem}
+.theme-btn:hover{color:var(--ink); border-color:var(--accent-dark)}
+.rail-cta{writing-mode:vertical-rl; transform:rotate(180deg); text-decoration:none; background:var(--accent-dark); color:#fff; font-family:'Inter',sans-serif; font-size:11px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; padding:14px 10px; border-radius:8px; box-shadow:0 4px 14px rgba(0,0,0,.18)}
+@media (max-width:860px){
+  .rail{position:static; width:100%; height:auto; flex-direction:row; justify-content:space-between; border-right:none; border-bottom:1px solid var(--line); padding:14px 18px}
+  .rail-nav{flex-direction:row; margin:0; flex-wrap:wrap}
+  .rail-nav a{writing-mode:horizontal-tb; transform:none; padding:8px 10px}
+  .rail-bottom{margin-top:0; flex-direction:row}
+  .rail-cta{writing-mode:horizontal-tb; transform:none; padding:9px 14px}
+}
+.content{margin-left:76px}
+@media (max-width:860px){ .content{margin-left:0} }
+
+.topbar{background:linear-gradient(135deg,var(--accent-dark),#2A231D); color:#fff; padding:12px 18px; display:flex; align-items:center; justify-content:space-between; position:sticky; top:0; z-index:20; box-shadow:0 2px 10px rgba(0,0,0,.15)}
+.topbar-left{display:flex; align-items:center; gap:10px}
+.topbar-logo{width:32px;height:32px;border-radius:8px;background:var(--teal);display:flex;align-items:center;justify-content:center;flex:none}
+.topbar-logo svg{width:18px;height:18px;stroke:#2B2621}
+.topbar-name{font-family:'Bebas Neue',sans-serif; font-size:19px; letter-spacing:.03em}
+.topbar-name span{color:var(--teal)}
+.topbar-sub{font-size:11px; color:rgba(255,255,255,.62); font-weight:500; font-family:'Inter',sans-serif}
+.tool-btn{background:rgba(255,255,255,.09); border:1px solid rgba(255,255,255,.16); color:#fff; border-radius:8px; padding:7px 10px; font-size:13px; cursor:pointer; font-weight:600}
+.tool-btn:hover{background:rgba(255,255,255,.17)}
+
+.progress-wrap{position:sticky; top:0; z-index:19; background:var(--bg); padding:10px 18px 8px; border-bottom:1px solid var(--line)}
+.progress-track{height:6px; background:var(--surface-2); border-radius:99px; overflow:hidden; max-width:640px; margin:0 auto}
+.progress-fill{height:100%; background:var(--teal); border-radius:99px; transition:width .35s ease; width:0%}
+.progress-label{max-width:640px; margin:6px auto 0; font-size:12px; color:var(--ink-soft); font-weight:600; display:flex; justify-content:space-between}
+
+main{max-width:640px; margin:0 auto; padding:28px 20px 90px}
+.screen{display:none; animation:fade .35s ease}
+.screen.active{display:block}
+@keyframes fade{from{opacity:0; transform:translateY(6px)} to{opacity:1; transform:translateY(0)}}
+
+.hook-badge{display:inline-flex; align-items:center; gap:6px; background:var(--surface-2); color:var(--accent-dark); font-weight:700; font-size:12.5px; padding:5px 12px; border-radius:99px; margin-bottom:18px; font-family:'Inter',sans-serif}
+body[data-mode="dark"] .hook-badge{color:var(--teal)}
+.hook h1{font-size:clamp(2.1rem,7vw,2.8rem); line-height:1.05; margin-bottom:14px}
+.hook h1 em{font-style:normal; color:var(--accent-dark)}
+body[data-mode="dark"] .hook h1 em{color:var(--teal)}
+.hook p.lede{font-size:1.05rem; color:var(--ink-mid); margin-bottom:22px; font-family:'Inter',sans-serif}
+.hook-facts{display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-bottom:26px}
+.hook-fact{background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:14px 10px; text-align:center}
+.hook-fact .n{font-family:'Bebas Neue',sans-serif; font-size:1.6rem; color:var(--accent-dark)}
+body[data-mode="dark"] .hook-fact .n{color:var(--teal)}
+.hook-fact .t{font-size:11.5px; color:var(--ink-soft); font-weight:600; margin-top:2px; font-family:'Inter',sans-serif}
+
+.btn{display:inline-flex; align-items:center; justify-content:center; gap:8px; border-radius:10px; padding:15px 22px; font-size:16px; font-weight:700; cursor:pointer; border:none; width:100%; text-align:center; font-family:'Inter',sans-serif}
+.btn-primary{background:var(--accent-dark); color:#fff; box-shadow:0 4px 14px rgba(var(--accent-rgb),.35)}
+.btn-primary:hover{filter:brightness(1.12)}
+.btn-ghost{background:var(--surface); color:var(--ink); border:1.5px solid var(--line)}
+.btn-ghost:hover{border-color:var(--accent-dark)}
+.hint-row{display:flex; align-items:center; gap:8px; margin-top:14px; font-size:13px; color:var(--ink-soft); justify-content:center; font-family:'Inter',sans-serif}
+
+.choose-card{background:var(--surface); border:1.5px solid var(--line); border-radius:14px; padding:18px 18px; margin-bottom:12px; cursor:pointer; transition:border-color .15s}
+.choose-card:hover{border-color:var(--accent-dark)}
+.choose-card .cc-label{font-family:'DM Serif Display',serif; font-size:1.2rem; margin-bottom:3px}
+.choose-card .cc-range{font-size:13px; color:var(--ink-soft); font-weight:600; font-family:'Inter',sans-serif}
+
+.zone-chip{display:inline-flex; align-items:center; gap:6px; background:var(--surface-2); color:var(--ink-mid); font-weight:700; font-size:11.5px; text-transform:uppercase; letter-spacing:.04em; padding:5px 11px; border-radius:99px; margin-bottom:16px; font-family:'Inter',sans-serif}
+.zone-chip .dot{width:6px;height:6px;border-radius:50%;background:var(--teal)}
+
+.check-card{background:var(--surface); border:1px solid var(--line); border-radius:16px; padding:24px 22px; box-shadow:0 2px 12px rgba(34,43,48,.08)}
+.check-card .verb{font-family:'Inter',sans-serif; font-size:12.5px; font-weight:700; color:var(--accent-dark); text-transform:uppercase; letter-spacing:.05em; margin-bottom:8px}
+body[data-mode="dark"] .check-card .verb{color:var(--teal)}
+.check-card h2{font-family:'DM Serif Display',serif; font-size:1.5rem; line-height:1.3; margin-bottom:10px; letter-spacing:0}
+.check-card .prompt{font-size:1rem; color:var(--ink-mid); margin-bottom:20px; font-family:'Inter',sans-serif}
+.check-card .prompt strong{color:var(--ink)}
+.opts{display:flex; flex-direction:column; gap:10px; margin-bottom:4px}
+.opt{display:flex; align-items:center; gap:12px; background:var(--tile); border:1.5px solid var(--line); border-radius:12px; padding:14px 16px; cursor:pointer; font-size:15px; font-weight:600; color:var(--ink); font-family:'Inter',sans-serif; transition:border-color .15s, background .15s}
+.opt:hover{border-color:var(--accent-dark)}
+.opt .ic{width:22px;height:22px;border-radius:50%;border:2px solid var(--line); flex:none; display:flex;align-items:center;justify-content:center; font-size:13px; font-weight:800; color:transparent}
+.opt.selected.safe{background:var(--safe-bg); border-color:var(--safe)}
+.opt.selected.safe .ic{border-color:var(--safe); color:var(--safe)}
+.opt.selected.flag{background:var(--flag-bg); border-color:var(--flag)}
+.opt.selected.flag .ic{border-color:var(--flag); color:var(--flag)}
+.change-hint{font-size:12.5px; color:var(--ink-soft); margin:10px 0 0; font-family:'Inter',sans-serif}
+
+.reveal{margin-top:18px; border-radius:12px; padding:16px 18px; border-left:4px solid var(--accent-dark); background:var(--surface-2); display:none; font-family:'Inter',sans-serif}
+.reveal.show{display:block; animation:fade .3s ease}
+.reveal .rk{font-size:11.5px; font-weight:700; text-transform:uppercase; letter-spacing:.05em; color:var(--accent-dark); margin-bottom:6px}
+body[data-mode="dark"] .reveal .rk{color:var(--teal)}
+.reveal.good{border-left-color:var(--safe); background:var(--safe-bg)}
+.reveal.good .rk{color:var(--safe)}
+.reveal.bad{border-left-color:var(--flag); background:var(--flag-bg)}
+.reveal.bad .rk{color:var(--flag)}
+.reveal p{margin:0 0 8px; font-size:14.5px; color:var(--ink-mid)}
+.reveal p:last-child{margin-bottom:0}
+.reveal .src{font-size:12.5px; color:var(--ink-soft); font-style:italic}
+
+.nav-row{display:flex; gap:10px; margin-top:22px}
+.nav-row .btn{flex:1}
+.nav-back{background:transparent; color:var(--ink-soft); border:none; font-size:13px; font-weight:600; cursor:pointer; padding:8px; margin-top:10px; width:100%; text-align:center; font-family:'Inter',sans-serif}
+
+.result-head{text-align:center; margin-bottom:24px}
+.result-head .kicker{font-size:12.5px; font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:var(--ink-soft); font-family:'Inter',sans-serif}
+.result-head h1{font-size:2rem; margin:8px 0 4px}
+.result-stats{display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin:22px 0 26px}
+.rstat{background:var(--surface); border:1px solid var(--line); border-radius:14px; padding:16px 8px; text-align:center}
+.rstat .n{font-family:'Bebas Neue',sans-serif; font-size:2rem}
+.rstat.total .n{color:var(--ink)}
+.rstat.safe .n{color:var(--safe)}
+.rstat.flag .n{color:var(--flag)}
+.rstat .t{font-size:11.5px; color:var(--ink-soft); font-weight:600; margin-top:2px; font-family:'Inter',sans-serif}
+
+.section-h{font-size:12.5px; font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:var(--ink-soft); margin:26px 0 12px; font-family:'Inter',sans-serif}
+.finding{display:flex; gap:12px; padding:13px 0; border-bottom:1px solid var(--line); font-family:'Inter',sans-serif}
+.finding:last-child{border-bottom:none}
+.finding .fic{width:26px;height:26px;border-radius:50%;flex:none;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800}
+.finding.flag .fic{background:var(--flag-bg); color:var(--flag)}
+.finding.safe .fic{background:var(--safe-bg); color:var(--safe)}
+.finding .ft{font-weight:700; font-size:14.5px; margin-bottom:2px}
+.finding .fd{font-size:13.5px; color:var(--ink-soft); line-height:1.5}
+
+.bridge{background:linear-gradient(160deg,var(--accent-dark),#2A231D); color:#fff; border-radius:18px; padding:26px 22px; margin:24px 0 20px}
+.bridge .bk{font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:var(--teal); font-family:'Inter',sans-serif}
+.bridge h3{font-family:'DM Serif Display',serif; font-size:1.5rem; margin:8px 0 12px; line-height:1.3; letter-spacing:0}
+.bridge p{font-size:14.5px; color:rgba(255,255,255,.82); margin:0 0 14px; font-family:'Inter',sans-serif}
+.bridge .btn-primary{background:var(--teal); color:#2B2621}
+.bridge .note{font-size:11.5px; color:rgba(255,255,255,.45); margin-top:10px; text-align:center; font-family:'Inter',sans-serif}
+.btn-soon{background:transparent !important; color:rgba(255,255,255,.6) !important; border:1.5px dashed rgba(255,255,255,.35); cursor:default; pointer-events:none; box-shadow:none !important}
+.soon-note{display:none; font-size:12.5px; color:rgba(255,255,255,.55); margin-top:10px; font-family:'Inter',sans-serif}
+
+.restart-row{text-align:center; margin-top:8px}
+.restart-row button{background:none; border:none; color:var(--ink-soft); font-size:13px; font-weight:600; text-decoration:underline; cursor:pointer; font-family:'Inter',sans-serif}
+.disclaimer{font-size:12px; color:var(--ink-soft); text-align:center; margin-top:30px; padding-top:18px; border-top:1px solid var(--line); line-height:1.6; font-family:'Inter',sans-serif}
+</style>
+</head>
+<body data-mode="light">
+
+<nav class="rail">
+  <a class="rail-mark" href="/" aria-label="The Snag Tag - home">
+    <svg viewBox="0 0 24 24" fill="none" stroke="#F5EEF1" stroke-width="1.6"><path d="M20 12 13 5a2 2 0 0 0-2.8 0L4 11.2a2 2 0 0 0 0 2.8L11 21a2 2 0 0 0 2.8 0L20 14.8a2 2 0 0 0 0-2.8Z"/><circle cx="15" cy="9" r="1.4" fill="#F5EEF1" stroke="none"/></svg>
+  </a>
+  <ul class="rail-nav">
+    <li><a href="/safelife-age-group/">Age Group</a></li>
+    <li><a href="/safelife-situations/" class="active">Situations</a></li>
+    <li><a href="/life-legacy-vault/">Life &amp; Legacy</a></li>
+  </ul>
+  <div class="rail-bottom">
+    <button class="theme-btn" id="modeToggle" type="button" aria-label="Toggle dark mode">🌙</button>
+    <a class="rail-cta" href="/">Home</a>
+  </div>
+</nav>
+
+<div class="content">
+<div class="progress-wrap" id="progressWrap" style="display:none">
+  <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+  <div class="progress-label"><span id="progressText">Check 1</span><span id="progressPct">0%</span></div>
+</div>
+
+<main>
+
+  <section class="screen active" id="screen-hook">
+    <div class="hook">
+      <span class="hook-badge">🏠 For any household, new home, farm, or home office</span>
+      <h1>A home you can trust starts with knowing <em>what to do before you need to</em>.</h1>
+      <p class="lede">Real checks pulled from The Snag Tag's own SafeLife Situations systems. No signup, no fear-mongering &mdash; just a fast, honest look at where you are today.</p>
+      <div class="hook-facts">
+        <div class="hook-fact"><div class="n">4</div><div class="t">real checks</div></div>
+        <div class="hook-fact"><div class="n">~4</div><div class="t">minutes</div></div>
+        <div class="hook-fact"><div class="n">£0</div><div class="t">to start</div></div>
+      </div>
+      <button class="btn btn-primary" id="startBtn" type="button">Start the Check &rarr;</button>
+      <div class="hint-row">Free. No account. Your answers stay on this device.</div>
+      <div class="hint-row" style="margin-top:6px"><a href="/safelife-situations/" style="color:inherit">← Browse all 5 Situations checks</a></div>
+    </div>
+  </section>
+
+  <section class="screen" id="screen-choose">
+    <div class="hook">
+      <h1 style="font-size:1.9rem">Which situation fits your household right now?</h1>
+      <p class="lede" style="margin-bottom:20px">This decides which real checks you'll see today.</p>
+      <div class="choose-card" data-key="emergency"><div class="cc-label">Emergency Preparedness</div><div class="cc-range">Fire, flood, power outage &amp; evacuation readiness</div></div>
+      <div class="choose-card" data-key="newhome"><div class="cc-label">New Home Move-In Audit</div><div class="cc-range">The safety checks that matter in the first week</div></div>
+      <div class="choose-card" data-key="farmrural"><div class="cc-label">Farm &amp; Rural Household</div><div class="cc-range">Machinery, water, livestock &amp; chemical hazards</div></div>
+      <div class="choose-card" data-key="homeoffice"><div class="cc-label">Home Office / Work-From-Home</div><div class="cc-range">Ergonomics, electrical safety &amp; fire escape routes</div></div>
+    </div>
+  </section>
+
+  <section class="screen" id="screen-check">
+    <span class="zone-chip"><span class="dot"></span><span id="chkZone">Zone</span></span>
+    <div class="check-card">
+      <div class="verb" id="chkVerb">Check</div>
+      <h2 id="chkTitle"></h2>
+      <p class="prompt" id="chkPrompt"></p>
+      <div class="opts" id="chkOpts"></div>
+      <p class="change-hint">Pick either one &mdash; you can change your answer any time before you move on.</p>
+      <div class="reveal" id="chkReveal">
+        <div class="rk" id="revealKicker">Here's what actually matters</div>
+        <p id="revealWhy"></p>
+        <p id="revealHow"></p>
+        <p class="src" id="revealSrc"></p>
+      </div>
+      <div class="nav-row" id="chkNavRow" style="display:none">
+        <button class="btn btn-primary" id="chkNextBtn" type="button">Next check &rarr;</button>
+      </div>
+    </div>
+    <button class="nav-back" id="chkBackBtn" type="button">&larr; back</button>
+  </section>
+
+  <section class="screen" id="screen-result">
+    <div class="result-head">
+      <div class="kicker">Your Situation Check</div>
+      <h1 id="resultHeadline">Here's what you found</h1>
+    </div>
+
+    <div class="result-stats">
+      <div class="rstat total"><div class="n" id="statTotal">0</div><div class="t">checked today</div></div>
+      <div class="rstat safe"><div class="n" id="statSafe">0</div><div class="t">already sorted</div></div>
+      <div class="rstat flag"><div class="n" id="statFlag">0</div><div class="t">need attention</div></div>
+    </div>
+
+    <div class="section-h">What to check today</div>
+    <div id="findingsFlag"></div>
+
+    <div class="section-h">Already sorted</div>
+    <div id="findingsSafe"></div>
+
+    <div class="bridge">
+      <div class="bk">The complete system</div>
+      <h3 id="bridgeHeadline">You found the gaps. Here's what closes them.</h3>
+      <p id="bridgeBody"></p>
+      <a class="btn btn-primary" id="proBtn" href="#" target="_blank" rel="noopener">Get the PRO system &rarr;</a>
+      <div class="soon-note" id="proSoonNote">This module is being finalised for Gumroad &mdash; check back shortly.</div>
+      <div class="note">One-time purchase. Works offline, on any device, no subscription.</div>
+    </div>
+
+    <div class="restart-row"><button id="restartBtn" type="button">&#8634; Start the check again</button></div>
+
+    <div class="disclaimer">This is educational general safety guidance from The Snag Tag, a NEBOSH &amp; OSHA trained HSE professional &mdash; not medical advice. Always use your own judgement and consult a qualified professional for concerns specific to your situation.</div>
+  </section>
+
+</main>
+</div>
+
+<script>
+const PRODUCTS = {
+  "emergency": {
+    "label": "Emergency Preparedness",
+    "gumroadUrl": "https://snagtag.gumroad.com/l/EmergencyPreparedness_PRO",
+    "checks": [
+      { "zone":"Fire Safety", "verb":"Go check", "title":"Does every level and bedroom have a tested smoke alarm?",
+        "prompt":"Working smoke alarms <strong>roughly halve</strong> the risk of dying in a home fire by giving early warning.",
+        "yes":"Yes, fitted & tested", "no":"Missing or untested",
+        "why":"Fires that start at night are especially dangerous because smoke can incapacitate people before they wake.",
+        "how":"Fit at least one alarm on every level, inside each bedroom, and in hallways outside sleeping areas. Test monthly, replace batteries yearly (or use a sealed 10-year alarm), and replace the whole unit around every 10 years per manufacturer guidance.",
+        "src":"Source: SafeLife Emergency Preparedness PRO, EP01 - Smoke Alarm Placement &amp; Testing Schedule" },
+      { "zone":"Fire Safety", "verb":"Go check", "title":"Do you have a dedicated carbon monoxide alarm, separate from your smoke alarms?",
+        "prompt":"Carbon monoxide is colourless and odourless - a smoke alarm <strong>cannot detect it</strong>.",
+        "yes":"Yes, dedicated CO alarm fitted", "no":"No dedicated CO alarm",
+        "why":"A dedicated CO alarm is the only reliable early warning of a leak, and CO poisoning can cause serious harm before symptoms are recognised.",
+        "how":"Fit a dedicated CO alarm on each level with a fuel-burning appliance and within about 3m (10ft) of each sleeping area. Test monthly and replace units per their rated sensor life, commonly 5-10 years.",
+        "src":"Source: SafeLife Emergency Preparedness PRO, EP13 - Carbon Monoxide Alarm Placement" },
+      { "zone":"Power & Utilities", "verb":"Think back", "title":"If you use a generator, is it always run outdoors and well away from windows and doors?",
+        "prompt":"Running a generator indoors or in a garage - even briefly - can fill a home with <strong>lethal carbon monoxide</strong> within minutes.",
+        "yes":"Yes, always outdoors", "no":"Not sure / sometimes indoors",
+        "why":"This is one of the single most critical checks in emergency readiness: generator CO can build up before anyone notices.",
+        "how":"Never run a generator indoors, in a garage, carport, or any enclosed space, even with a door open. Position it outdoors, pointed away from the home, at least about 6m (20ft) from any window, door, or vent.",
+        "src":"Source: SafeLife Emergency Preparedness PRO, EP32 - Generator Safety, Carbon Monoxide Risk" },
+      { "zone":"Evacuation Readiness", "verb":"Go check", "title":"Do you have a packed grab-bag ready to go, per person or per household?",
+        "prompt":"When an evacuation is needed, there is often <strong>very little time</strong> to think or gather things.",
+        "yes":"Yes, packed and ready", "no":"Not packed yet",
+        "why":"A pre-packed grab-bag removes decision-making from the most stressful possible moment.",
+        "how":"Pack water, non-perishable snacks, a torch, a first-aid kit, copies of key documents, medication, a phone charger, cash-equivalent small savings, a change of clothes, and hygiene items. Review and refresh at least twice a year.",
+        "src":"Source: SafeLife Emergency Preparedness PRO, EP43 - Go-Bag / Grab-Bag Core Contents List" }
+    ]
+  },
+  "newhome": {
+    "label": "New Home Move-In Audit",
+    "gumroadUrl": "https://snagtag.gumroad.com/l/New_Home_Move_In_Audit_PRO",
+    "checks": [
+      { "zone":"Fire & Escape Safety", "verb":"Go check", "title":"Have you located and tested every smoke alarm before your first night?",
+        "prompt":"A new home is exactly the moment old assumptions about safety equipment need to be <strong>checked, not trusted</strong>.",
+        "yes":"Yes, tested them all", "no":"Haven't tested yet",
+        "why":"A working smoke alarm is one of the single most effective protections against fire injury.",
+        "how":"Locate every smoke alarm, press the test button on each, and replace batteries or the unit itself if it doesn't sound clearly.",
+        "src":"Source: SafeLife New Home Move-In Audit PRO, NH01 - Locating and Testing Every Smoke Alarm" },
+      { "zone":"Utilities & Systems", "verb":"Go check", "title":"Do you know where the main gas shutoff valve is and how to use it?",
+        "prompt":"In a suspected gas leak, shutting off the supply immediately is a <strong>critical safety step</strong>.",
+        "yes":"Yes, located and confirmed", "no":"Don't know yet",
+        "why":"Knowing the shutoff location and operation lets you act fast alongside leaving the property and calling for help.",
+        "how":"Locate the main gas shutoff valve on move-in day, confirm how it operates, and make sure every adult knows where it is and what a suspected leak smells or sounds like.",
+        "src":"Source: SafeLife New Home Move-In Audit PRO, NH09 - Locating the Main Gas Shutoff Valve" },
+      { "zone":"Electrical Safety", "verb":"Go check", "title":"Do outlets near water (kitchen, bathroom, outdoor) have GFCI/RCD-equivalent protection?",
+        "prompt":"Electrical outlets near water carry a <strong>significantly higher shock risk</strong> without this protection.",
+        "yes":"Yes, protected", "no":"Not sure / missing",
+        "why":"Ground-fault/residual-current protection is designed specifically to prevent serious or fatal shock near water.",
+        "how":"Check for a visible test/reset button on outlets near water sources, and arrange for a qualified electrician to add protection where it's missing.",
+        "src":"Source: SafeLife New Home Move-In Audit PRO, NH30 - Confirming GFCI/RCD-Equivalent Protection" },
+      { "zone":"Child Safety", "verb":"Go check", "title":"Is tall or top-heavy furniture anchored to the wall in every room?",
+        "prompt":"Furniture tip-overs are a recognised and serious cause of injury to young children who <strong>climb on drawers or shelving</strong>.",
+        "yes":"Yes, anchored", "no":"Not yet anchored",
+        "why":"An unanchored piece of furniture in a new, unfamiliar layout is a foreseeable and preventable risk.",
+        "how":"Anchor tall or top-heavy furniture and freestanding appliances to a wall stud using an anti-tip strap or bracket before children have unsupervised access to the room.",
+        "src":"Source: SafeLife New Home Move-In Audit PRO, NH60 - Anchoring Furniture and Appliances to Walls" }
+    ]
+  },
+  "farmrural": {
+    "label": "Farm & Rural Household",
+    "gumroadUrl": "https://snagtag.gumroad.com/l/Farm_Rural_Household_PRO",
+    "checks": [
+      { "zone":"Machinery Safety", "verb":"Go check", "title":"Do you check PTO shaft guards are present and intact before every use?",
+        "prompt":"A PTO shaft can entangle loose clothing, hair, or a limb in a <strong>fraction of a second</strong>.",
+        "yes":"Yes, checked every time", "no":"Not checked every time",
+        "why":"This is one of the most serious and well-documented mechanical hazards on any farm.",
+        "how":"Visually and physically check the PTO shaft guard is present, undamaged, and rotates freely before starting any PTO-driven equipment.",
+        "src":"Source: SafeLife Farm &amp; Rural Household PRO, FR01 - Checking PTO Shaft Guards" },
+      { "zone":"Water Hazards", "verb":"Think back", "title":"Is there always one designated adult actively supervising children near open water?",
+        "prompt":"Young children can drown <strong>silently and in seconds</strong>, even in very little water.",
+        "yes":"Yes, always designated", "no":"Not always designated",
+        "why":"Constant, undistracted adult supervision is the single most important control near any open water, regardless of barriers.",
+        "how":"Designate one adult as the active supervisor whenever children are near open water, keeping them within arm's reach and free of distractions.",
+        "src":"Source: SafeLife Farm &amp; Rural Household PRO, FR16 - Constant Supervision Near Open Water" },
+      { "zone":"Chemical Safety", "verb":"Go check", "title":"Are pesticides and chemicals stored in a locked cabinet, shed, or room, away from children?",
+        "prompt":"Accidental chemical ingestion is a serious poisoning risk - locked storage is the <strong>single most effective control</strong>.",
+        "yes":"Yes, locked away", "no":"Accessible / unlocked",
+        "why":"Many chemicals that appear mild carry real risks if ingested by a small child.",
+        "how":"Store all pesticides and chemicals in a locked cabinet, shed, or room genuinely inaccessible to children, with the key or code kept separate.",
+        "src":"Source: SafeLife Farm &amp; Rural Household PRO, FR43 - Locked, Secure Storage of Pesticides and Chemicals" },
+      { "zone":"Structural Hazards", "verb":"Go check", "title":"Does everyone follow a strict no-solo-entry rule for grain bins and silos?",
+        "prompt":"Flowing grain can <strong>engulf a person in seconds</strong> - this is one of the most serious hazards in agricultural work.",
+        "yes":"Yes, never alone", "no":"Not a firm rule yet",
+        "why":"Grain engulfment is recognised as a leading cause of agricultural fatality.",
+        "how":"Never enter a grain bin or silo alone. Always have a trained observer present with a means of rescue and communication, and lock out grain-moving equipment before anyone enters.",
+        "src":"Source: SafeLife Farm &amp; Rural Household PRO, FR57 - Grain Bin and Silo Engulfment Awareness" }
+    ]
+  },
+  "homeoffice": {
+    "label": "Home Office / Work-From-Home",
+    "gumroadUrl": "https://snagtag.gumroad.com/l/Home_Office_WFH_PRO",
+    "checks": [
+      { "zone":"Electrical Safety", "verb":"Go check", "title":"Do you avoid overloading any single socket or extension lead with your office equipment?",
+        "prompt":"An overloaded socket or lead can overheat and start a fire - one of the most serious and <strong>preventable</strong> electrical hazards.",
+        "yes":"Yes, spread across sockets", "no":"Multiple devices on one lead",
+        "why":"Exceeding a socket or extension lead's rated load is a leading cause of overheating and electrical fire.",
+        "how":"Check the rated load before plugging in multiple devices, and spread higher-draw equipment such as monitors and heaters across separate circuits where possible.",
+        "src":"Source: SafeLife Home Office/WFH PRO, HO15 - Never Overloading a Single Socket or Extension Lead" },
+      { "zone":"Fire Safety", "verb":"Go check", "title":"Is the fire escape route from your home-office room always kept completely clear?",
+        "prompt":"A blocked escape route from a converted office space can turn a manageable fire into a <strong>life-threatening one</strong>.",
+        "yes":"Yes, always clear", "no":"Sometimes blocked",
+        "why":"This is one of the most serious hazards in any home office, and it's entirely preventable.",
+        "how":"Identify the fire escape route from your home-office room and keep it completely clear of furniture, boxes, and equipment, checking it whenever the room is rearranged.",
+        "src":"Source: SafeLife Home Office/WFH PRO, HO71 - Never Blocking the Fire Escape Route" },
+      { "zone":"Child Safety", "verb":"Go check", "title":"Are trailing office cables kept away from areas where children walk or play?",
+        "prompt":"A trailing cable can trip a child, or bring heavy equipment like a monitor down <strong>onto them</strong>.",
+        "yes":"Yes, routed away", "no":"Cables at floor level",
+        "why":"This hazard is easy to miss from adult height but is a serious, preventable trip and pull-down risk.",
+        "how":"Route and secure all cables well away from areas where children walk or play, using cable clips, covers, or rerouting along walls.",
+        "src":"Source: SafeLife Home Office/WFH PRO, HO72 - Keeping Trailing Cables Away from Children" },
+      { "zone":"Ergonomics", "verb":"Think back", "title":"If you work mainly on a laptop, do you use a stand plus an external keyboard and mouse?",
+        "prompt":"A laptop's screen and keyboard can't both be at the right height at once - a common cause of <strong>neck and wrist strain</strong>.",
+        "yes":"Yes, using a stand + external kit", "no":"Working on the laptop directly",
+        "why":"Sustained laptop-only use is one of the most common causes of neck and wrist strain in home working.",
+        "how":"Use a laptop stand or books to raise the screen to eye level, paired with a separate external keyboard and mouse positioned for a neutral wrist posture.",
+        "src":"Source: SafeLife Home Office/WFH PRO, HO09 - Using an External Keyboard, Mouse and Stand" }
+    ]
+  }
+};
+
+const STORE_KEY = 'snagtag-home-emergency-check';
+let state = { idx:0, answers:[], started:false, product:null };
+let CHECKS = [];
+
+function loadState(){
+  try{ const raw = localStorage.getItem(STORE_KEY); if(raw){ const s = JSON.parse(raw); if(s && Array.isArray(s.answers)) state = s; } }catch(e){}
+  if(state.product && PRODUCTS[state.product]) CHECKS = PRODUCTS[state.product].checks;
+}
+function saveState(){ try{ localStorage.setItem(STORE_KEY, JSON.stringify(state)); }catch(e){} }
+
+function show(id){
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  document.getElementById('progressWrap').style.display = (id==='screen-check') ? 'block' : 'none';
+  window.scrollTo({top:0, behavior:'instant' in window ? 'instant' : 'auto'});
+}
+
+document.querySelectorAll('.choose-card').forEach(card=>{
+  card.addEventListener('click', ()=>{
+    const key = card.getAttribute('data-key');
+    state = { idx:0, answers:[], started:true, product:key };
+    CHECKS = PRODUCTS[key].checks;
+    saveState();
+    renderCheck(); show('screen-check');
+  });
+});
+
+function renderCheck(){
+  const i = state.idx;
+  const c = CHECKS[i];
+  document.getElementById('chkZone').textContent = c.zone;
+  document.getElementById('chkVerb').textContent = c.verb;
+  document.getElementById('chkTitle').textContent = c.title;
+  document.getElementById('chkPrompt').innerHTML = c.prompt;
+  document.getElementById('progressText').textContent = 'Check ' + (i+1) + ' of ' + CHECKS.length;
+  document.getElementById('progressPct').textContent = Math.round(((i)/CHECKS.length)*100) + '%';
+  document.getElementById('progressFill').style.width = ((i)/CHECKS.length*100) + '%';
+
+  const opts = document.getElementById('chkOpts');
+  opts.innerHTML = '';
+  const answered = state.answers[i] !== undefined && state.answers[i] !== null;
+
+  [['yes', c.yes, true], ['no', c.no, false]].forEach(([key,label,isSafe])=>{
+    const div = document.createElement('div');
+    div.className = 'opt';
+    const isSelected = answered && state.answers[i] === isSafe;
+    div.innerHTML = '<span class="ic">'+(isSelected ? '✓' : '')+'</span><span>'+label+'</span>';
+    if(isSelected) div.classList.add('selected', isSafe ? 'safe':'flag');
+    div.addEventListener('click', ()=>{
+      state.answers[i] = isSafe;
+      saveState();
+      renderCheck();
+      applyReveal(c, isSafe);
+      document.getElementById('chkNavRow').style.display = 'flex';
+      document.getElementById('chkNextBtn').textContent = (i === CHECKS.length-1) ? 'See my results →' : 'Next check →';
+    });
+    opts.appendChild(div);
+  });
+
+  const rv = document.getElementById('chkReveal');
+  if(answered){
+    applyReveal(c, state.answers[i]);
+    document.getElementById('chkNavRow').style.display = 'flex';
+    document.getElementById('chkNextBtn').textContent = (i === CHECKS.length-1) ? 'See my results →' : 'Next check →';
+  } else {
+    rv.classList.remove('show');
+    document.getElementById('chkNavRow').style.display = 'none';
+  }
+  document.getElementById('chkBackBtn').style.visibility = (i===0) ? 'hidden' : 'visible';
+}
+
+function applyReveal(c, isSafe){
+  const rv = document.getElementById('chkReveal');
+  rv.classList.add('show');
+  rv.classList.toggle('good', !!isSafe);
+  rv.classList.toggle('bad', !isSafe);
+  const kicker = document.getElementById('revealKicker');
+  const line1 = document.getElementById('revealWhy');
+  const line2 = document.getElementById('revealHow');
+  if(isSafe){
+    kicker.textContent = '✓ Good - that\'s sorted';
+    line1.textContent = c.why;
+    line2.textContent = 'Keep it that way.';
+  } else {
+    kicker.textContent = '⚠ Worth acting on - here\'s why';
+    line1.textContent = c.why;
+    line2.textContent = c.how;
+  }
+  document.getElementById('revealSrc').innerHTML = c.src;
+}
+
+document.getElementById('chkNextBtn').addEventListener('click', ()=>{
+  if(state.idx < CHECKS.length-1){
+    state.idx++; saveState(); renderCheck(); show('screen-check');
+  } else {
+    document.getElementById('progressFill').style.width = '100%';
+    renderResult(); show('screen-result');
+  }
+});
+document.getElementById('chkBackBtn').addEventListener('click', ()=>{
+  if(state.idx>0){ state.idx--; saveState(); renderCheck(); show('screen-check'); }
+});
+document.getElementById('startBtn').addEventListener('click', ()=>{
+  state = { idx:0, answers:[], started:true, product:null }; saveState();
+  show('screen-choose');
+});
+document.getElementById('restartBtn').addEventListener('click', ()=>{
+  state = { idx:0, answers:[], started:true, product:null }; saveState();
+  show('screen-choose');
+});
+
+function renderResult(){
+  const p = PRODUCTS[state.product];
+  const total = CHECKS.length;
+  const safeCount = state.answers.filter(a=>a===true).length;
+  const flagCount = state.answers.filter(a=>a===false).length;
+  document.getElementById('statTotal').textContent = total;
+  document.getElementById('statSafe').textContent = safeCount;
+  document.getElementById('statFlag').textContent = flagCount;
+
+  document.getElementById('resultHeadline').textContent =
+    flagCount === 0 ? total + ' for ' + total + ' - genuinely well done' :
+    flagCount <= 1 ? 'Close. One thing to sort today' :
+    'You just found real gaps';
+
+  const flagWrap = document.getElementById('findingsFlag');
+  const safeWrap = document.getElementById('findingsSafe');
+  flagWrap.innerHTML = ''; safeWrap.innerHTML = '';
+  if(flagCount===0){ flagWrap.innerHTML = '<p style="font-size:14px;color:var(--ink-soft);font-family:Inter,sans-serif">Nothing flagged today &mdash; see the sorted list below.</p>'; }
+  CHECKS.forEach((c,i)=>{
+    const isSafe = state.answers[i]===true;
+    const div = document.createElement('div');
+    div.className = 'finding ' + (isSafe?'safe':'flag');
+    div.innerHTML = '<div class="fic">'+(isSafe?'✓':'!')+'</div><div><div class="ft">'+c.title.replace(/\?$/,'')+'</div><div class="fd">'+(isSafe? 'Sorted - keep it that way.' : c.how)+'</div></div>';
+    (isSafe ? safeWrap : flagWrap).appendChild(div);
+  });
+
+  const bridgeBody = flagCount === 0
+    ? 'You\'re sorted on all ' + total + ' of today\'s highest-priority checks for ' + p.label + '. The full SafeLife system covers every other zone - the quieter risks that don\'t announce themselves until something goes wrong.'
+    : 'Today\'s check found ' + flagCount + ' real thing' + (flagCount===1?'':'s') + ' worth acting on for ' + p.label + '. The full SafeLife system is built to close every gap like these, not just the ones you saw today.';
+  document.getElementById('bridgeBody').textContent = bridgeBody;
+
+  const proBtn = document.getElementById('proBtn');
+  const soonNote = document.getElementById('proSoonNote');
+  if(p.gumroadUrl === '#'){
+    proBtn.removeAttribute('href');
+    proBtn.classList.add('btn-soon');
+    proBtn.setAttribute('aria-disabled', 'true');
+    proBtn.textContent = 'Coming soon to Gumroad';
+    if(soonNote) soonNote.style.display = 'block';
+  } else {
+    proBtn.href = p.gumroadUrl;
+    proBtn.classList.remove('btn-soon');
+    proBtn.removeAttribute('aria-disabled');
+    proBtn.textContent = 'Get SafeLife ' + p.label + ' PRO →';
+    if(soonNote) soonNote.style.display = 'none';
+  }
+}
+
+function applyMode(m){
+  document.body.setAttribute('data-mode', m);
+  document.getElementById('modeToggle').textContent = m==='dark' ? '☀️' : '🌙';
+  try{ localStorage.setItem(STORE_KEY+'-mode', m); }catch(e){}
+}
+document.getElementById('modeToggle').addEventListener('click', ()=>{
+  applyMode(document.body.getAttribute('data-mode')==='dark' ? 'light' : 'dark');
+});
+(function initMode(){
+  let m = 'light';
+  try{ m = localStorage.getItem(STORE_KEY+'-mode') || (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'); }catch(e){}
+  applyMode(m);
+})();
+
+loadState();
+if(state.started && state.product && state.idx < CHECKS.length && !(state.answers.length===CHECKS.length && state.answers.every(a=>a!==undefined))){
+  renderCheck(); show('screen-check');
+} else if(state.started && state.product && state.answers.length===CHECKS.length && state.answers.every(a=>a!==undefined && a!==null)){
+  renderResult(); show('screen-result');
+} else if(state.started && !state.product){
+  show('screen-choose');
+}
+</script>
+</body>
+</html>
